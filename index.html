@@ -11,10 +11,7 @@ content="width=device-width, initial-scale=1.0">
 <title>Custom Em Bin - Đăng ký</title>
 
 <style>
-const SCRIPT_URL =
-https://script.google.com/macros/s/ABC123/exec
 
-    
 * {
     box-sizing: border-box;
     margin: 0;
@@ -323,15 +320,15 @@ required
 
 <option value="">-- Chọn vị trí --</option>
 
-<option>Tank</option>
+<option value="Tank">Tank</option>
 
-<option>SP</option>
+<option value="SP">SP</option>
 
-<option>Tỉa</option>
+<option value="Tỉa">Tỉa</option>
 
-<option>Bomber</option>
+<option value="Bomber">Bomber</option>
 
-<option>Dự bị</option>
+<option value="Dự bị">Dự bị</option>
 
 </select>
 
@@ -368,15 +365,15 @@ required
 
 <option value="">-- Chọn vị trí --</option>
 
-<option>Tank</option>
+<option value="Tank">Tank</option>
 
-<option>SP</option>
+<option value="SP">SP</option>
 
-<option>Tỉa</option>
+<option value="Tỉa">Tỉa</option>
 
-<option>Bomber</option>
+<option value="Bomber">Bomber</option>
 
-<option>Dự bị</option>
+<option value="Dự bị">Dự bị</option>
 
 </select>
 
@@ -413,15 +410,15 @@ required
 
 <option value="">-- Chọn vị trí --</option>
 
-<option>Tank</option>
+<option value="Tank">Tank</option>
 
-<option>SP</option>
+<option value="SP">SP</option>
 
-<option>Tỉa</option>
+<option value="Tỉa">Tỉa</option>
 
-<option>Bomber</option>
+<option value="Bomber">Bomber</option>
 
-<option>Dự bị</option>
+<option value="Dự bị">Dự bị</option>
 
 </select>
 
@@ -458,15 +455,15 @@ required
 
 <option value="">-- Chọn vị trí --</option>
 
-<option>Tank</option>
+<option value="Tank">Tank</option>
 
-<option>SP</option>
+<option value="SP">SP</option>
 
-<option>Tỉa</option>
+<option value="Tỉa">Tỉa</option>
 
-<option>Bomber</option>
+<option value="Bomber">Bomber</option>
 
-<option>Dự bị</option>
+<option value="Dự bị">Dự bị</option>
 
 </select>
 
@@ -503,15 +500,15 @@ required
 
 <option value="">-- Chọn vị trí --</option>
 
-<option>Tank</option>
+<option value="Tank">Tank</option>
 
-<option>SP</option>
+<option value="SP">SP</option>
 
-<option>Tỉa</option>
+<option value="Tỉa">Tỉa</option>
 
-<option>Bomber</option>
+<option value="Bomber">Bomber</option>
 
-<option>Dự bị</option>
+<option value="Dự bị">Dự bị</option>
 
 </select>
 
@@ -569,12 +566,12 @@ CUSTOM EM BIN © 2026
 
 /*
 ================================================
-DÁN LINK GOOGLE APPS SCRIPT CỦA BẠN VÀO ĐÂY
+GOOGLE APPS SCRIPT
 ================================================
 */
 
 const SCRIPT_URL =
-"https://script.google.com/macros/s/XXXXXXXXXXXX/exec";
+"https://script.google.com/macros/s/AKfycbz2lA4EJL4zRHw4G-i-7jPP9axNYfBXzf_wxTIz773v_jzo473gFEOx4rluHD_92Rrz/exec";
 
 
 const form =
@@ -676,8 +673,10 @@ method: "POST",
 mode: "no-cors",
 
 headers: {
+
 "Content-Type":
 "text/plain;charset=utf-8"
+
 },
 
 body:
@@ -689,6 +688,11 @@ JSON.stringify(data)
 document
 .getElementById("success")
 .style.display = "block";
+
+
+document
+.getElementById("error")
+.style.display = "none";
 
 
 form.reset();
@@ -728,7 +732,6 @@ button.innerText =
 "🚀 ĐĂNG KÝ GIẢI ĐẤU";
 
 });
-
 
 </script>
 

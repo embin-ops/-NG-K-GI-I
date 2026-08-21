@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Custom Em Bin - Quản lý</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#070b14,#111827);
+color:white;
+padding:15px;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+}
+
+.header{
+text-align:center;
+padding:25px;
+}
+
+.header h1{
+color:#00e5ff;
+margin-bottom:8px;
+}
+
+.header p{
+color:#999;
+}
+
+.toolbar{
+background:#151b2b;
+padding:15px;
+border-radius:15px;
+margin-bottom:20px;
+}
+
+.search{
+width:100%;
+padding:13px;
+background:#0c1220;
+border:1px solid #35415b;
+border-radius:9px;
+color:white;
+outline:none;
+margin-bottom:10px;
+}
+
+.refresh{
+width:100%;
+padding:13px;
+border:0;
+border-radius:9px;
+background:#00e5ff;
+font-weight:bold;
+cursor:pointer;
+}
+
+.team{
+background:#151b2b;
+border:1px solid #29354d;
+border-radius:16px;
+padding:20px;
+margin-bottom:20px;
+}
+
+.team-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:15px;
+}
+
+.team-name{
+color:#00e5ff;
+font-size:22px;
+font-weight:bold;
+}
+
+.number{
+background:#00e5ff;
+color:#001016;
+padding:6px 10px;
+border-radius:20px;
+font-weight:bold;
+}
+
+.info{
+color:#bbb;
+line-height:1.8;
+margin-bottom:18px;
+}
+
+.members{
+display:grid;
+grid-template-columns:
+repeat(5,1fr);
+gap:10px;
+}
+
+.member{
+background:#0d1422;
+border:1px solid #2b3852;
+border-radius:12px;
+padding:14px;
+}
+
+.member h3{
+color:#ffd166;
+font-size:15px;
+margin-bottom:10px;
+}
+
+.member p{
+font-size:14px;
+line-height:1.6;
+word-break:break-word;
+}
+
+.role{
+display:inline-block;
+margin-top:8px;
+color:#00e5ff;
+font-weight:bold;
+}
+
+.empty{
+text-align:center;
+color:#888;
+padding:50px;
+}
+
+@media(max-width:850px){
+
+.members{
+grid-template-columns:
+repeat(2,1fr);
+}
+
+}
+
+@media(max-width:500px){
+
+.members{
+grid-template-columns:1fr;
+}
+
+.team-header{
+align-items:flex-start;
+flex-direction:column;
+gap:10px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<h1>🔐 CUSTOM EM BIN</h1>
+
+<p>QUẢN LÝ ĐĂNG KÝ GIẢI ĐẤU</p>
+
+</div>
+
+
+<div class="toolbar">
+
+<input
+id="search"
+class="search"
+placeholder="🔎 Tìm tên team..."
+oninput="searchTeams()"
+>
+
+<button
+class="refresh"
+onclick="loadTeams()">
+
+🔄 TẢI LẠI
+
+</button>
+
+</div>
+
+
+<div id="list">
+
+<div class="empty">
+⏳ Đang tải...
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/*
+=========================================
+DÁN CÙNG LINK APPS SCRIPT VÀO ĐÂY
+=========================================
+*/
+
+const SCRIPT_URL =
+https://script.google.com/macros/s/ABC123/exec
+
+
+let teams=[];
+
+
+async function loadTeams(){
+
+const list =
+document.getElementById("list");
+
+list.innerHTML =
+'<div class="empty">⏳ Đang tải...</div>';
+
+
+try{
+
+const response =
+await fetch(SCRIPT_URL);
+
+teams =
+await response.json();
+
+showTeams(teams);
+
+}catch(error){
+
+list.innerHTML =
+`
+<div class="empty">
+
+❌ Không tải được dữ liệu.
+
+<br><br>
+
+Kiểm tra lại URL Apps Script.
+
+</div>
+`;
+
+}
+
+}
+
+
+function showTeams(data){
+
+const list =
+document.getElementById("list");
+
+
+if(!data.length){
+
+list.innerHTML =
+`
+<div class="empty">
+
+📋 Chưa có team đăng ký.
+
+</div>
+`;
+
+return;
+
+}
+
+
+list.innerHTML="";
+
+
+data.forEach(
+(team,index)=>{
+
+const div =
+document.createElement("div");
+
+div.className="team";
+
+
+let members="";
+
+
+team.members.forEach(
+(member,i)=>{
+
+members += `
+
+<div class="member">
+
+<h3>
+THÀNH VIÊN ${i+1}
+</h3>
+
+<p>
+<b>Tên:</b>
+${safe(member.name)}
+</p>
+
+<p>
+<b>UID:</b>
+${safe(member.uid)}
+</p>
+
+<div class="role">
+${safe(member.role)}
+</div>
+
+</div>
+
+`;
+
+});
+
+
+div.innerHTML=`
+
+<div class="team-header">
+
+<div class="team-name">
+${safe(team.teamName)}
+</div>
+
+<div class="number">
+#${index+1}
+</div>
+
+</div>
+
+
+<div class="info">
+
+👑 Đội trưởng:
+<b>${safe(team.captain)}</b>
+
+<br>
+
+📱 Liên hệ:
+<b>${safe(team.contact)}</b>
+
+<br>
+
+🕐 Đăng ký:
+<b>${safe(team.time)}</b>
+
+</div>
+
+
+<div class="members">
+
+${members}
+
+</div>
+
+`;
+
+
+list.appendChild(div);
+
+});
+
+}
+
+
+function searchTeams(){
+
+const keyword =
+document
+.getElementById("search")
+.value
+.toLowerCase()
+.trim();
+
+
+const result =
+teams.filter(
+team =>
+String(team.teamName)
+.toLowerCase()
+.includes(keyword)
+);
+
+
+showTeams(result);
+
+}
+
+
+function safe(text){
+
+if(text===null ||
+text===undefined){
+
+return "";
+
+}
+
+return String(text)
+
+.replace(/&/g,"&amp;")
+
+.replace(/</g,"&lt;")
+
+.replace(/>/g,"&gt;")
+
+.replace(/"/g,"&quot;")
+
+.replace(/'/g,"&#039;");
+
+}
+
+
+loadTeams();
+
+</script>
+
+</body>
+
+</html>

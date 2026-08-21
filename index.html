@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
 
 <meta charset="UTF-8">
@@ -8,614 +7,309 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>Custom Em Bin - Đăng ký 24 Team</title>
+<title>Custom Em Bin - Đăng ký</title>
 
 <style>
 
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-font-family:Arial,sans-serif;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
 }
 
-body{
-background:linear-gradient(135deg,#070b14,#111827);
-color:white;
-min-height:100vh;
-padding:20px;
+body {
+  background: linear-gradient(135deg, #070b14, #111827);
+  color: white;
+  min-height: 100vh;
+  padding: 20px;
 }
 
-.container{
-max-width:750px;
-margin:auto;
+.container {
+  max-width: 750px;
+  margin: auto;
 }
 
-.header{
-text-align:center;
-padding:25px 10px;
+.header {
+  text-align: center;
+  padding: 25px 10px;
 }
 
-.header h1{
-font-size:34px;
-color:#00e5ff;
-margin-bottom:8px;
+.header h1 {
+  font-size: 34px;
+  color: #00e5ff;
+  margin-bottom: 8px;
 }
 
-.header p{
-color:#aaa;
+.header p {
+  color: #aaa;
 }
 
-.counter{
-background:#151b2b;
-border:1px solid #26324a;
-border-radius:15px;
-padding:18px;
-margin-bottom:20px;
-text-align:center;
+.counter {
+  background: #151b2b;
+  border: 1px solid #26324a;
+  border-radius: 18px;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.counter-title{
-font-size:15px;
-color:#aaa;
-margin-bottom:8px;
+.counter-title {
+  color: #aaa;
+  margin-bottom: 8px;
 }
 
-.counter-number{
-font-size:30px;
-font-weight:bold;
-color:#00e5ff;
+.counter-number {
+  font-size: 30px;
+  font-weight: bold;
+  color: #00e5ff;
 }
 
-.full{
-color:#ff5555 !important;
+.counter-number.full {
+  color: #ff5555;
 }
 
-.card{
-background:#151b2b;
-border:1px solid #26324a;
-border-radius:18px;
-padding:22px;
-margin-bottom:20px;
-box-shadow:0 10px 30px rgba(0,0,0,.35);
+.card {
+  background: #151b2b;
+  border: 1px solid #26324a;
+  border-radius: 18px;
+  padding: 22px;
+  margin-bottom: 20px;
 }
 
-.card h2{
-color:#00e5ff;
-margin-bottom:20px;
+.card h2 {
+  color: #00e5ff;
+  margin-bottom: 20px;
 }
 
-label{
-display:block;
-font-weight:bold;
-margin-bottom:7px;
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 7px;
 }
 
 input,
-select{
-width:100%;
-padding:14px;
-margin-bottom:17px;
-border-radius:10px;
-border:1px solid #303b55;
-background:#0c1220;
-color:white;
-font-size:15px;
-outline:none;
+select {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 17px;
+  border-radius: 10px;
+  border: 1px solid #303b55;
+  background: #0c1220;
+  color: white;
+  font-size: 15px;
 }
 
-input:focus,
-select:focus{
-border-color:#00e5ff;
+.member {
+  background: #0e1524;
+  border: 1px solid #2b3852;
+  border-radius: 14px;
+  padding: 17px;
+  margin-bottom: 15px;
 }
 
-.member{
-background:#0e1524;
-border:1px solid #2b3852;
-border-radius:14px;
-padding:17px;
-margin-bottom:15px;
+.member h3 {
+  color: #ffd166;
+  margin-bottom: 15px;
 }
 
-.member h3{
-color:#ffd166;
-margin-bottom:15px;
+button {
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  padding: 16px;
+  background: #00e5ff;
+  color: #001016;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-button{
-width:100%;
-border:none;
-border-radius:12px;
-padding:16px;
-background:#00e5ff;
-color:#001016;
-font-size:17px;
-font-weight:bold;
-cursor:pointer;
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
-button:disabled{
-opacity:.5;
-cursor:not-allowed;
+.message {
+  display: none;
+  padding: 18px;
+  margin-top: 20px;
+  border-radius: 12px;
+  text-align: center;
 }
 
-.message{
-display:none;
-padding:18px;
-margin-top:20px;
-border-radius:12px;
-text-align:center;
+.success {
+  background: #12351f;
+  border: 1px solid #28d66b;
+  color: #8cffae;
 }
 
-.success{
-background:#12351f;
-border:1px solid #28d66b;
-color:#8cffae;
+.error {
+  background: #3a1515;
+  border: 1px solid #ff5555;
+  color: #ff9a9a;
 }
 
-.error{
-background:#3a1515;
-border:1px solid #ff5555;
-color:#ff9a9a;
-}
-
-.footer{
-text-align:center;
-color:#666;
-margin-top:25px;
-font-size:13px;
-}
-
-@media(max-width:600px){
-
-body{
-padding:10px;
-}
-
-.header h1{
-font-size:27px;
-}
-
-.card{
-padding:16px;
-}
-
+.footer {
+  text-align: center;
+  color: #666;
+  margin-top: 25px;
+  font-size: 13px;
 }
 
 </style>
-
 </head>
-
 
 <body>
 
 <div class="container">
 
-
 <div class="header">
-
-<h1>🏆 CUSTOM EM BIN</h1>
-
-<p>ĐĂNG KÝ GIẢI ĐẤU - 24 TEAM</p>
-
+  <h1>🏆 CUSTOM EM BIN</h1>
+  <p>ĐĂNG KÝ GIẢI ĐẤU - TỐI ĐA 24 TEAM</p>
 </div>
-
 
 <div class="counter">
 
-<div class="counter-title">
-SỐ LƯỢNG TEAM ĐÃ ĐĂNG KÝ
-</div>
+  <div class="counter-title">
+    SỐ TEAM ĐÃ ĐĂNG KÝ
+  </div>
 
-<div
-id="counterNumber"
-class="counter-number">
-
-ĐANG KIỂM TRA...
-
-</div>
+  <div id="counter"
+       class="counter-number">
+    Đang kiểm tra...
+  </div>
 
 </div>
-
 
 <form id="registerForm">
-
 
 <div class="card">
 
 <h2>📝 THÔNG TIN ĐỘI</h2>
 
-
 <label>Tên Team</label>
 
 <input
-type="text"
-name="teamName"
-placeholder="Nhập tên team"
-required
+  type="text"
+  name="teamName"
+  placeholder="Nhập tên team"
+  required
 >
-
 
 <label>Tên đội trưởng</label>
 
 <input
-type="text"
-name="captain"
-placeholder="Nhập tên đội trưởng"
-required
+  type="text"
+  name="captain"
+  placeholder="Nhập tên đội trưởng"
+  required
 >
-
 
 <label>Số điện thoại / Zalo</label>
 
 <input
-type="text"
-name="contact"
-placeholder="Nhập SĐT hoặc Zalo"
-required
+  type="text"
+  name="contact"
+  placeholder="Nhập SĐT hoặc Zalo"
+  required
 >
 
 </div>
-
 
 <div class="card">
 
 <h2>👥 5 THÀNH VIÊN</h2>
 
+<script>
+const positions = `
+<option value="">-- Chọn vị trí --</option>
+<option value="Tank">Tank</option>
+<option value="SP">SP</option>
+<option value="Tỉa">Tỉa</option>
+<option value="Bomber">Bomber</option>
+<option value="Dự bị">Dự bị</option>
+`;
 
-<!-- MEMBER 1 -->
+for (let i = 1; i <= 5; i++) {
 
-<div class="member">
+  document.write(`
+    <div class="member">
 
-<h3>THÀNH VIÊN 1</h3>
+      <h3>THÀNH VIÊN ${i}</h3>
 
-<label>Tên ingame</label>
+      <label>Tên ingame</label>
 
-<input
-type="text"
-name="player1"
-placeholder="Tên ingame"
-required
->
+      <input
+        type="text"
+        name="player${i}"
+        placeholder="Tên ingame"
+        required
+      >
 
-<label>UID</label>
+      <label>UID</label>
 
-<input
-type="text"
-name="uid1"
-placeholder="UID"
-required
->
+      <input
+        type="text"
+        name="uid${i}"
+        placeholder="UID"
+        required
+      >
 
-<label>Vị trí</label>
+      <label>Vị trí</label>
 
-<select name="role1" required>
+      <select name="role${i}" required>
+        ${positions}
+      </select>
 
-<option value="">
--- Chọn vị trí --
-</option>
+    </div>
+  `);
 
-<option value="Tank">
-Tank
-</option>
-
-<option value="SP">
-SP
-</option>
-
-<option value="Tỉa">
-Tỉa
-</option>
-
-<option value="Bomber">
-Bomber
-</option>
-
-<option value="Dự bị">
-Dự bị
-</option>
-
-</select>
+}
+</script>
 
 </div>
-
-
-<!-- MEMBER 2 -->
-
-<div class="member">
-
-<h3>THÀNH VIÊN 2</h3>
-
-<label>Tên ingame</label>
-
-<input
-type="text"
-name="player2"
-placeholder="Tên ingame"
-required
->
-
-<label>UID</label>
-
-<input
-type="text"
-name="uid2"
-placeholder="UID"
-required
->
-
-<label>Vị trí</label>
-
-<select name="role2" required>
-
-<option value="">
--- Chọn vị trí --
-</option>
-
-<option value="Tank">
-Tank
-</option>
-
-<option value="SP">
-SP
-</option>
-
-<option value="Tỉa">
-Tỉa
-</option>
-
-<option value="Bomber">
-Bomber
-</option>
-
-<option value="Dự bị">
-Dự bị
-</option>
-
-</select>
-
-</div>
-
-
-<!-- MEMBER 3 -->
-
-<div class="member">
-
-<h3>THÀNH VIÊN 3</h3>
-
-<label>Tên ingame</label>
-
-<input
-type="text"
-name="player3"
-placeholder="Tên ingame"
-required
->
-
-<label>UID</label>
-
-<input
-type="text"
-name="uid3"
-placeholder="UID"
-required
->
-
-<label>Vị trí</label>
-
-<select name="role3" required>
-
-<option value="">
--- Chọn vị trí --
-</option>
-
-<option value="Tank">
-Tank
-</option>
-
-<option value="SP">
-SP
-</option>
-
-<option value="Tỉa">
-Tỉa
-</option>
-
-<option value="Bomber">
-Bomber
-</option>
-
-<option value="Dự bị">
-Dự bị
-</option>
-
-</select>
-
-</div>
-
-
-<!-- MEMBER 4 -->
-
-<div class="member">
-
-<h3>THÀNH VIÊN 4</h3>
-
-<label>Tên ingame</label>
-
-<input
-type="text"
-name="player4"
-placeholder="Tên ingame"
-required
->
-
-<label>UID</label>
-
-<input
-type="text"
-name="uid4"
-placeholder="UID"
-required
->
-
-<label>Vị trí</label>
-
-<select name="role4" required>
-
-<option value="">
--- Chọn vị trí --
-</option>
-
-<option value="Tank">
-Tank
-</option>
-
-<option value="SP">
-SP
-</option>
-
-<option value="Tỉa">
-Tỉa
-</option>
-
-<option value="Bomber">
-Bomber
-</option>
-
-<option value="Dự bị">
-Dự bị
-</option>
-
-</select>
-
-</div>
-
-
-<!-- MEMBER 5 -->
-
-<div class="member">
-
-<h3>THÀNH VIÊN 5</h3>
-
-<label>Tên ingame</label>
-
-<input
-type="text"
-name="player5"
-placeholder="Tên ingame"
-required
->
-
-<label>UID</label>
-
-<input
-type="text"
-name="uid5"
-placeholder="UID"
-required
->
-
-<label>Vị trí</label>
-
-<select name="role5" required>
-
-<option value="">
--- Chọn vị trí --
-</option>
-
-<option value="Tank">
-Tank
-</option>
-
-<option value="SP">
-SP
-</option>
-
-<option value="Tỉa">
-Tỉa
-</option>
-
-<option value="Bomber">
-Bomber
-</option>
-
-<option value="Dự bị">
-Dự bị
-</option>
-
-</select>
-
-</div>
-
-
-</div>
-
 
 <button
-type="submit"
-id="submitButton">
+  type="submit"
+  id="submitButton">
 
-🚀 ĐĂNG KÝ GIẢI ĐẤU
+  🚀 ĐĂNG KÝ GIẢI ĐẤU
 
 </button>
 
-
 </form>
 
-
-<div
-id="success"
-class="message success">
+<div id="success"
+     class="message success">
 
 <h2>✅ ĐĂNG KÝ THÀNH CÔNG!</h2>
 
-<br>
-
-<p>
-Team của bạn đã được ghi nhận.
-</p>
+<p>Team của bạn đã được ghi nhận.</p>
 
 </div>
 
-
-<div
-id="error"
-class="message error">
+<div id="error"
+     class="message error">
 
 <h2>❌ CÓ LỖI</h2>
 
-<br>
-
-<p id="errorText">
-Không thể gửi đăng ký.
-</p>
+<p id="errorText"></p>
 
 </div>
-
 
 <div class="footer">
-
 CUSTOM EM BIN © 2026
-
 </div>
 
-
 </div>
-
 
 <script>
-
-
-/* ================================
-GOOGLE APPS SCRIPT
-================================ */
 
 const SCRIPT_URL =
 "https://script.google.com/macros/s/AKfycbz2lA4EJL4zRHw4G-i-7jPP9axNYfBXzf_wxTIz773v_jzo473gFEOx4rluHD_92Rrz/exec";
 
-
 const MAX_TEAMS = 24;
-
 
 const form =
 document.getElementById("registerForm");
@@ -624,250 +318,134 @@ const button =
 document.getElementById("submitButton");
 
 const counter =
-document.getElementById("counterNumber");
+document.getElementById("counter");
 
+async function checkTeams() {
 
-/* ================================
-KIỂM TRA SỐ TEAM
-================================ */
+  try {
 
-async function checkTeams(){
+    const response =
+      await fetch(SCRIPT_URL + "?t=" + Date.now());
 
-try{
+    const result =
+      await response.json();
 
-const response =
-await fetch(SCRIPT_URL);
+    const count =
+      Number(result.count || 0);
 
-const result =
-await response.json();
+    counter.textContent =
+      count + " / " + MAX_TEAMS + " TEAM";
 
+    if (count >= MAX_TEAMS) {
 
-const count =
-result.count || 0;
+      counter.textContent =
+        "🔴 ĐÃ ĐỦ 24 / 24 TEAM";
 
+      counter.classList.add("full");
 
-counter.innerText =
-count + " / " + MAX_TEAMS + " TEAM";
+      button.disabled = true;
 
+      button.textContent =
+        "🔒 ĐĂNG KÝ ĐÃ ĐÓNG";
 
-if(count >= MAX_TEAMS){
+    } else {
 
-counter.innerText =
-"🔴 ĐÃ ĐỦ 24 / 24 TEAM";
+      counter.classList.remove("full");
 
-counter.classList.add("full");
+      button.disabled = false;
 
-button.disabled = true;
+      button.textContent =
+        "🚀 ĐĂNG KÝ GIẢI ĐẤU";
 
-button.innerText =
-"🔒 ĐĂNG KÝ ĐÃ ĐÓNG";
+    }
 
-}
+  } catch (error) {
 
-else{
+    counter.textContent =
+      "Không thể kiểm tra";
 
-counter.classList.remove("full");
-
-button.disabled = false;
-
-button.innerText =
-"🚀 ĐĂNG KÝ GIẢI ĐẤU";
-
-}
+  }
 
 }
-
-catch(error){
-
-counter.innerText =
-"Không thể kiểm tra";
-
-}
-
-}
-
-
-/* ================================
-GỬI ĐĂNG KÝ
-================================ */
 
 form.addEventListener(
 "submit",
-async function(event){
+async function(event) {
 
-event.preventDefault();
+  event.preventDefault();
 
+  button.disabled = true;
 
-button.disabled = true;
+  button.textContent =
+    "⏳ ĐANG GỬI...";
 
-button.innerText =
-"⏳ ĐANG GỬI ĐĂNG KÝ...";
+  const formData =
+    new FormData(form);
 
+  const data = {};
 
-const formData =
-new FormData(form);
+  formData.forEach(
+    (value, key) => {
+      data[key] = value;
+    }
+  );
 
+  try {
 
-const data = {
+    await fetch(
+      SCRIPT_URL,
+      {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type":
+            "text/plain;charset=utf-8"
+        },
+        body: JSON.stringify(data)
+      }
+    );
 
-teamName:
-formData.get("teamName"),
+    form.reset();
 
-captain:
-formData.get("captain"),
+    document
+      .getElementById("success")
+      .style.display = "block";
 
-contact:
-formData.get("contact"),
+    document
+      .getElementById("error")
+      .style.display = "none";
 
+    await new Promise(
+      resolve => setTimeout(resolve, 1200)
+    );
 
-player1:
-formData.get("player1"),
+    await checkTeams();
 
-uid1:
-formData.get("uid1"),
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: "smooth"
+    });
 
-role1:
-formData.get("role1"),
+  } catch (error) {
 
+    document
+      .getElementById("error")
+      .style.display = "block";
 
-player2:
-formData.get("player2"),
+    document
+      .getElementById("errorText")
+      .textContent =
+        "Không thể gửi đăng ký. Vui lòng thử lại.";
 
-uid2:
-formData.get("uid2"),
+    button.disabled = false;
 
-role2:
-formData.get("role2"),
-
-
-player3:
-formData.get("player3"),
-
-uid3:
-formData.get("uid3"),
-
-role3:
-formData.get("role3"),
-
-
-player4:
-formData.get("player4"),
-
-uid4:
-formData.get("uid4"),
-
-role4:
-formData.get("role4"),
-
-
-player5:
-formData.get("player5"),
-
-uid5:
-formData.get("uid5"),
-
-role5:
-formData.get("role5")
-
-};
-
-
-try{
-
-
-const response =
-await fetch(
-SCRIPT_URL,
-{
-
-method:"POST",
-
-mode:"no-cors",
-
-headers:{
-"Content-Type":
-"text/plain;charset=utf-8"
-},
-
-body:
-JSON.stringify(data)
+  }
 
 });
-
-
-/*
-NO-CORS KHÔNG CHO ĐỌC RESPONSE.
-SAU KHI GỬI THÀNH CÔNG,
-KIỂM TRA LẠI SỐ TEAM.
-*/
-
-await new Promise(
-resolve =>
-setTimeout(resolve,1000)
-);
-
-
-await checkTeams();
-
-
-document
-.getElementById("success")
-.style.display =
-"block";
-
-
-document
-.getElementById("error")
-.style.display =
-"none";
-
-
-form.reset();
-
-
-window.scrollTo({
-
-top:
-document.body.scrollHeight,
-
-behavior:"smooth"
-
-});
-
-
-}
-
-catch(error){
-
-document
-.getElementById("error")
-.style.display =
-"block";
-
-
-document
-.getElementById("errorText")
-.innerText =
-"Không thể gửi dữ liệu. Vui lòng thử lại.";
-
-}
-
-
-button.disabled = false;
-
-await checkTeams();
-
-});
-
-
-/* ================================
-CHẠY KHI MỞ TRANG
-================================ */
 
 checkTeams();
 
 </script>
 
 </body>
-
 </html>

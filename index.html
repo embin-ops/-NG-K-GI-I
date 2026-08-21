@@ -1,515 +1,562 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>CUSTOM EM BIN - Đăng ký giải đấu</title>
+<meta charset="UTF-8">
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, Helvetica, sans-serif;
-        }
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-        body {
-            min-height: 100vh;
-            background: linear-gradient(135deg, #070b14, #111827);
-            color: white;
-            padding: 20px;
-        }
+<title>Custom Em Bin - Đăng ký</title>
 
-        .container {
-            width: 100%;
-            max-width: 760px;
-            margin: auto;
-        }
+<style>
 
-        .header {
-            text-align: center;
-            padding: 25px 10px;
-        }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
 
-        .header h1 {
-            font-size: 34px;
-            color: #00e5ff;
-            margin-bottom: 8px;
-        }
+body {
 
-        .header p {
-            color: #aab2c0;
-            font-size: 15px;
-        }
+    background:
+    linear-gradient(135deg, #070b14, #111827);
 
-        .card {
-            background: #151b2b;
-            border: 1px solid #29354d;
-            border-radius: 18px;
-            padding: 22px;
-            margin-bottom: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-        }
+    color: white;
 
-        .card-title {
-            color: #00e5ff;
-            font-size: 21px;
-            margin-bottom: 20px;
-        }
+    min-height: 100vh;
 
-        label {
-            display: block;
-            margin-bottom: 7px;
-            font-weight: bold;
-            color: #e8edf5;
-        }
+    padding: 20px;
+}
 
-        input {
-            width: 100%;
-            padding: 14px;
-            margin-bottom: 18px;
-            border: 1px solid #35415b;
-            border-radius: 10px;
-            background: #0c1220;
-            color: white;
-            font-size: 15px;
-            outline: none;
-        }
+.container {
 
-        input:focus {
-            border-color: #00e5ff;
-        }
+    max-width: 750px;
 
-        input[readonly] {
-            color: #00e5ff;
-            font-weight: bold;
-            cursor: not-allowed;
-            background: #101a2b;
-        }
+    margin: auto;
+}
 
-        .member {
-            background: #0e1524;
-            border: 1px solid #2b3852;
-            border-radius: 14px;
-            padding: 18px;
-            margin-bottom: 16px;
-        }
+.header {
 
-        .member:last-child {
-            margin-bottom: 0;
-        }
+    text-align: center;
 
-        .member-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px;
-            margin-bottom: 18px;
-        }
+    padding: 25px 10px;
+}
 
-        .member-number {
-            color: #ffd166;
-            font-size: 18px;
-            font-weight: bold;
-        }
+.header h1 {
 
-        .position {
-            padding: 7px 12px;
-            border-radius: 20px;
-            background: #17283a;
-            border: 1px solid #00e5ff;
-            color: #00e5ff;
-            font-size: 13px;
-            font-weight: bold;
-        }
+    font-size: 34px;
 
-        button {
-            width: 100%;
-            padding: 16px;
-            border: none;
-            border-radius: 12px;
-            background: #00e5ff;
-            color: #001016;
-            font-size: 17px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.2s;
-        }
+    color: #00e5ff;
 
-        button:hover {
-            transform: translateY(-1px);
-            opacity: 0.92;
-        }
+    margin-bottom: 8px;
+}
 
-        button:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none;
-        }
+.header p {
 
-        .success,
-        .error {
-            display: none;
-            margin-top: 20px;
-            padding: 18px;
-            border-radius: 12px;
-            text-align: center;
-        }
+    color: #aaa;
+}
 
-        .success {
-            background: #12351f;
-            border: 1px solid #28d66b;
-            color: #8cffae;
-        }
+.card {
 
-        .error {
-            background: #3a1515;
-            border: 1px solid #ff5555;
-            color: #ff9a9a;
-        }
+    background: #151b2b;
 
-        .footer {
-            text-align: center;
-            color: #666;
-            margin-top: 25px;
-            padding-bottom: 15px;
-            font-size: 13px;
-        }
+    border: 1px solid #26324a;
 
-        @media (max-width: 600px) {
-            body {
-                padding: 10px;
-            }
+    border-radius: 18px;
 
-            .header h1 {
-                font-size: 27px;
-            }
+    padding: 22px;
 
-            .card {
-                padding: 16px;
-            }
+    margin-bottom: 20px;
 
-            .member-header {
-                align-items: flex-start;
-                flex-direction: column;
-            }
-        }
-    </style>
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.35);
+}
+
+.card h2 {
+
+    color: #00e5ff;
+
+    margin-bottom: 20px;
+}
+
+label {
+
+    display: block;
+
+    font-weight: bold;
+
+    margin-bottom: 7px;
+}
+
+input,
+select {
+
+    width: 100%;
+
+    padding: 14px;
+
+    margin-bottom: 17px;
+
+    border-radius: 10px;
+
+    border: 1px solid #303b55;
+
+    background: #0c1220;
+
+    color: white;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+input:focus,
+select:focus {
+
+    border-color: #00e5ff;
+}
+
+.member {
+
+    background: #0e1524;
+
+    border: 1px solid #2b3852;
+
+    border-radius: 14px;
+
+    padding: 17px;
+
+    margin-bottom: 15px;
+}
+
+.member h3 {
+
+    color: #ffd166;
+
+    margin-bottom: 15px;
+}
+
+button {
+
+    width: 100%;
+
+    border: none;
+
+    border-radius: 12px;
+
+    padding: 16px;
+
+    background: #00e5ff;
+
+    color: #001016;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+button:disabled {
+
+    opacity: .5;
+
+    cursor: not-allowed;
+}
+
+.message {
+
+    display: none;
+
+    padding: 18px;
+
+    margin-top: 20px;
+
+    border-radius: 12px;
+
+    text-align: center;
+}
+
+.success {
+
+    background: #12351f;
+
+    border: 1px solid #28d66b;
+
+    color: #8cffae;
+}
+
+.error {
+
+    background: #3a1515;
+
+    border: 1px solid #ff5555;
+
+    color: #ff9a9a;
+}
+
+.footer {
+
+    text-align: center;
+
+    color: #666;
+
+    margin-top: 25px;
+
+    font-size: 13px;
+}
+
+@media(max-width:600px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .header h1 {
+        font-size: 27px;
+    }
+
+    .card {
+        padding: 16px;
+    }
+}
+
+</style>
+
 </head>
+
 
 <body>
 
 <div class="container">
 
-    <!-- HEADER -->
-    <div class="header">
-        <h1>🏆 CUSTOM EM BIN</h1>
-        <p>ĐĂNG KÝ GIẢI ĐẤU</p>
-    </div>
+<div class="header">
 
+<h1>🏆 CUSTOM EM BIN</h1>
 
-    <!-- THÔNG TIN ĐỘI -->
-    <div class="card">
+<p>ĐĂNG KÝ GIẢI ĐẤU</p>
 
-        <div class="card-title">
-            📝 THÔNG TIN ĐỘI
-        </div>
+</div>
 
-        <label for="teamName">
-            Tên Team
-        </label>
 
-        <input
-            id="teamName"
-            type="text"
-            placeholder="Nhập tên team"
-            required
-        >
+<form id="registerForm">
 
 
-        <label for="captain">
-            Tên đội trưởng
-        </label>
+<!-- THÔNG TIN TEAM -->
 
-        <input
-            id="captain"
-            type="text"
-            placeholder="Nhập tên đội trưởng"
-            required
-        >
+<div class="card">
 
+<h2>📝 THÔNG TIN ĐỘI</h2>
 
-        <label for="contact">
-            Số điện thoại / Zalo
-        </label>
+<label>Tên Team</label>
 
-        <input
-            id="contact"
-            type="text"
-            placeholder="Nhập SĐT hoặc Zalo"
-            required
-        >
+<input
+type="text"
+name="teamName"
+placeholder="Nhập tên team"
+required
+>
 
-    </div>
 
+<label>Tên đội trưởng</label>
 
-    <!-- 5 THÀNH VIÊN -->
-    <div class="card">
+<input
+type="text"
+name="captain"
+placeholder="Nhập tên đội trưởng"
+required
+>
 
-        <div class="card-title">
-            👥 DANH SÁCH 5 THÀNH VIÊN
-        </div>
 
+<label>Số điện thoại / Zalo</label>
 
-        <!-- THÀNH VIÊN 1 -->
-        <div class="member">
+<input
+type="text"
+name="contact"
+placeholder="Nhập SĐT hoặc Zalo"
+required
+>
 
-            <div class="member-header">
+</div>
 
-                <div class="member-number">
-                    THÀNH VIÊN 1
-                </div>
 
-                <div class="position">
-                    TANK
-                </div>
+<!-- THÀNH VIÊN -->
 
-            </div>
+<div class="card">
 
-            <label for="player1">
-                Tên ingame
-            </label>
+<h2>👥 5 THÀNH VIÊN</h2>
 
-            <input
-                id="player1"
-                type="text"
-                placeholder="Nhập tên ingame"
-                required
-            >
 
-            <label for="uid1">
-                UID
-            </label>
+<!-- PLAYER 1 -->
 
-            <input
-                id="uid1"
-                type="text"
-                placeholder="Nhập UID"
-                required
-            >
+<div class="member">
 
-        </div>
+<h3>THÀNH VIÊN 1</h3>
 
+<label>Tên ingame</label>
 
-        <!-- THÀNH VIÊN 2 -->
-        <div class="member">
+<input
+type="text"
+name="player1"
+placeholder="Tên ingame"
+required
+>
 
-            <div class="member-header">
+<label>UID</label>
 
-                <div class="member-number">
-                    THÀNH VIÊN 2
-                </div>
+<input
+type="text"
+name="uid1"
+placeholder="UID"
+required
+>
 
-                <div class="position">
-                    SP
-                </div>
+<label>Vị trí</label>
 
-            </div>
+<select name="role1" required>
 
-            <label for="player2">
-                Tên ingame
-            </label>
+<option value="">-- Chọn vị trí --</option>
 
-            <input
-                id="player2"
-                type="text"
-                placeholder="Nhập tên ingame"
-                required
-            >
+<option>Tank</option>
 
-            <label for="uid2">
-                UID
-            </label>
+<option>SP</option>
 
-            <input
-                id="uid2"
-                type="text"
-                placeholder="Nhập UID"
-                required
-            >
+<option>Tỉa</option>
 
-        </div>
+<option>Bomber</option>
 
+<option>Dự bị</option>
 
-        <!-- THÀNH VIÊN 3 -->
-        <div class="member">
+</select>
 
-            <div class="member-header">
+</div>
 
-                <div class="member-number">
-                    THÀNH VIÊN 3
-                </div>
 
-                <div class="position">
-                    TỈA
-                </div>
+<!-- PLAYER 2 -->
 
-            </div>
+<div class="member">
 
-            <label for="player3">
-                Tên ingame
-            </label>
+<h3>THÀNH VIÊN 2</h3>
 
-            <input
-                id="player3"
-                type="text"
-                placeholder="Nhập tên ingame"
-                required
-            >
+<label>Tên ingame</label>
 
-            <label for="uid3">
-                UID
-            </label>
+<input
+type="text"
+name="player2"
+placeholder="Tên ingame"
+required
+>
 
-            <input
-                id="uid3"
-                type="text"
-                placeholder="Nhập UID"
-                required
-            >
+<label>UID</label>
 
-        </div>
+<input
+type="text"
+name="uid2"
+placeholder="UID"
+required
+>
 
+<label>Vị trí</label>
 
-        <!-- THÀNH VIÊN 4 -->
-        <div class="member">
+<select name="role2" required>
 
-            <div class="member-header">
+<option value="">-- Chọn vị trí --</option>
 
-                <div class="member-number">
-                    THÀNH VIÊN 4
-                </div>
+<option>Tank</option>
 
-                <div class="position">
-                    BOMBER
-                </div>
+<option>SP</option>
 
-            </div>
+<option>Tỉa</option>
 
-            <label for="player4">
-                Tên ingame
-            </label>
+<option>Bomber</option>
 
-            <input
-                id="player4"
-                type="text"
-                placeholder="Nhập tên ingame"
-                required
-            >
+<option>Dự bị</option>
 
-            <label for="uid4">
-                UID
-            </label>
+</select>
 
-            <input
-                id="uid4"
-                type="text"
-                placeholder="Nhập UID"
-                required
-            >
+</div>
 
-        </div>
 
+<!-- PLAYER 3 -->
 
-        <!-- THÀNH VIÊN 5 -->
-        <div class="member">
+<div class="member">
 
-            <div class="member-header">
+<h3>THÀNH VIÊN 3</h3>
 
-                <div class="member-number">
-                    THÀNH VIÊN 5
-                </div>
+<label>Tên ingame</label>
 
-                <div class="position">
-                    DỰ BỊ
-                </div>
+<input
+type="text"
+name="player3"
+placeholder="Tên ingame"
+required
+>
 
-            </div>
+<label>UID</label>
 
-            <label for="player5">
-                Tên ingame
-            </label>
+<input
+type="text"
+name="uid3"
+placeholder="UID"
+required
+>
 
-            <input
-                id="player5"
-                type="text"
-                placeholder="Nhập tên ingame"
-                required
-            >
+<label>Vị trí</label>
 
-            <label for="uid5">
-                UID
-            </label>
+<select name="role3" required>
 
-            <input
-                id="uid5"
-                type="text"
-                placeholder="Nhập UID"
-                required
-            >
+<option value="">-- Chọn vị trí --</option>
 
-        </div>
+<option>Tank</option>
 
-    </div>
+<option>SP</option>
 
+<option>Tỉa</option>
 
-    <!-- NÚT ĐĂNG KÝ -->
-    <button
-        id="submitButton"
-        type="button"
-        onclick="submitForm()">
+<option>Bomber</option>
 
-        🚀 ĐĂNG KÝ GIẢI ĐẤU
+<option>Dự bị</option>
 
-    </button>
+</select>
 
+</div>
 
-    <!-- THÔNG BÁO THÀNH CÔNG -->
-    <div
-        id="success"
-        class="success">
 
-        <h2>✅ ĐĂNG KÝ THÀNH CÔNG!</h2>
+<!-- PLAYER 4 -->
 
-        <br>
+<div class="member">
 
-        <p>
-            Thông tin đội đã được gửi thành công.
-        </p>
+<h3>THÀNH VIÊN 4</h3>
 
-    </div>
+<label>Tên ingame</label>
 
+<input
+type="text"
+name="player4"
+placeholder="Tên ingame"
+required
+>
 
-    <!-- THÔNG BÁO LỖI -->
-    <div
-        id="error"
-        class="error">
+<label>UID</label>
 
-        <h2>❌ ĐĂNG KÝ THẤT BẠI</h2>
+<input
+type="text"
+name="uid4"
+placeholder="UID"
+required
+>
 
-        <br>
+<label>Vị trí</label>
 
-        <p id="errorText">
-            Vui lòng kiểm tra lại thông tin.
-        </p>
+<select name="role4" required>
 
-    </div>
+<option value="">-- Chọn vị trí --</option>
 
+<option>Tank</option>
 
-    <div class="footer">
-        CUSTOM EM BIN © 2026
-    </div>
+<option>SP</option>
+
+<option>Tỉa</option>
+
+<option>Bomber</option>
+
+<option>Dự bị</option>
+
+</select>
+
+</div>
+
+
+<!-- PLAYER 5 -->
+
+<div class="member">
+
+<h3>THÀNH VIÊN 5</h3>
+
+<label>Tên ingame</label>
+
+<input
+type="text"
+name="player5"
+placeholder="Tên ingame"
+required
+>
+
+<label>UID</label>
+
+<input
+type="text"
+name="uid5"
+placeholder="UID"
+required
+>
+
+<label>Vị trí</label>
+
+<select name="role5" required>
+
+<option value="">-- Chọn vị trí --</option>
+
+<option>Tank</option>
+
+<option>SP</option>
+
+<option>Tỉa</option>
+
+<option>Bomber</option>
+
+<option>Dự bị</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<button
+type="submit"
+id="submitButton">
+
+🚀 ĐĂNG KÝ GIẢI ĐẤU
+
+</button>
+
+</form>
+
+
+<div
+id="success"
+class="message success">
+
+<h2>✅ ĐĂNG KÝ THÀNH CÔNG!</h2>
+
+<p>Thông tin đội đã được gửi.</p>
+
+</div>
+
+
+<div
+id="error"
+class="message error">
+
+<h2>❌ CÓ LỖI</h2>
+
+<p id="errorText">
+Không thể gửi đăng ký.
+</p>
+
+</div>
+
+
+<div class="footer">
+
+CUSTOM EM BIN © 2026
+
+</div>
 
 </div>
 
@@ -517,264 +564,171 @@
 <script>
 
 
-// =====================================================
-// DÁN LINK GOOGLE APPS SCRIPT CỦA BẠN VÀO ĐÂY
-// =====================================================
+/*
+================================================
+DÁN LINK GOOGLE APPS SCRIPT CỦA BẠN VÀO ĐÂY
+================================================
+*/
 
 const SCRIPT_URL =
 "https://script.google.com/macros/s/XXXXXXXXXXXX/exec";
 
 
-// =====================================================
-// HÀM ĐĂNG KÝ
-// =====================================================
+const form =
+document.getElementById("registerForm");
 
-async function submitForm() {
+const button =
+document.getElementById("submitButton");
 
-    const teamName =
-        document.getElementById("teamName").value.trim();
 
-    const captain =
-        document.getElementById("captain").value.trim();
+form.addEventListener(
+"submit",
+async function(event) {
 
-    const contact =
-        document.getElementById("contact").value.trim();
+event.preventDefault();
 
 
-    const player1 =
-        document.getElementById("player1").value.trim();
+button.disabled = true;
 
-    const uid1 =
-        document.getElementById("uid1").value.trim();
+button.innerText =
+"⏳ ĐANG GỬI ĐĂNG KÝ...";
 
 
-    const player2 =
-        document.getElementById("player2").value.trim();
+const formData =
+new FormData(form);
 
-    const uid2 =
-        document.getElementById("uid2").value.trim();
 
+const data = {
 
-    const player3 =
-        document.getElementById("player3").value.trim();
+teamName:
+formData.get("teamName"),
 
-    const uid3 =
-        document.getElementById("uid3").value.trim();
+captain:
+formData.get("captain"),
 
+contact:
+formData.get("contact"),
 
-    const player4 =
-        document.getElementById("player4").value.trim();
 
-    const uid4 =
-        document.getElementById("uid4").value.trim();
+player1:
+formData.get("player1"),
 
+uid1:
+formData.get("uid1"),
 
-    const player5 =
-        document.getElementById("player5").value.trim();
+role1:
+formData.get("role1"),
 
-    const uid5 =
-        document.getElementById("uid5").value.trim();
 
+player2:
+formData.get("player2"),
 
-    // KIỂM TRA THÔNG TIN ĐỘI
+uid2:
+formData.get("uid2"),
 
-    if (
-        !teamName ||
-        !captain ||
-        !contact
-    ) {
+role2:
+formData.get("role2"),
 
-        showError(
-            "Vui lòng nhập đầy đủ thông tin đội."
-        );
 
-        return;
-    }
+player3:
+formData.get("player3"),
 
+uid3:
+formData.get("uid3"),
 
-    // KIỂM TRA 5 THÀNH VIÊN
+role3:
+formData.get("role3"),
 
-    if (
-        !player1 || !uid1 ||
-        !player2 || !uid2 ||
-        !player3 || !uid3 ||
-        !player4 || !uid4 ||
-        !player5 || !uid5
-    ) {
 
-        showError(
-            "Vui lòng nhập đầy đủ 5 thành viên và UID."
-        );
+player4:
+formData.get("player4"),
 
-        return;
-    }
+uid4:
+formData.get("uid4"),
 
+role4:
+formData.get("role4"),
 
-    const button =
-        document.getElementById("submitButton");
 
-    button.disabled = true;
+player5:
+formData.get("player5"),
 
-    button.innerText =
-        "⏳ ĐANG GỬI...";
+uid5:
+formData.get("uid5"),
 
+role5:
+formData.get("role5")
 
-    // DỮ LIỆU GỬI ĐI
+};
 
-    const data = {
 
-        teamName: teamName,
+try {
 
-        captain: captain,
+await fetch(
+SCRIPT_URL,
+{
 
-        contact: contact,
+method: "POST",
 
+mode: "no-cors",
 
-        player1: player1,
+headers: {
+"Content-Type":
+"text/plain;charset=utf-8"
+},
 
-        uid1: uid1,
+body:
+JSON.stringify(data)
 
-        role1: "Tank",
+});
 
 
-        player2: player2,
+document
+.getElementById("success")
+.style.display = "block";
 
-        uid2: uid2,
 
-        role2: "SP",
+form.reset();
 
 
-        player3: player3,
+window.scrollTo({
 
-        uid3: uid3,
+top:
+document.body.scrollHeight,
 
-        role3: "Tỉa",
+behavior:
+"smooth"
 
+});
 
-        player4: player4,
 
-        uid4: uid4,
+}
 
-        role4: "Bomber",
+catch(error) {
 
+document
+.getElementById("error")
+.style.display = "block";
 
-        player5: player5,
 
-        uid5: uid5,
+document
+.getElementById("errorText")
+.innerText =
+"Không thể gửi dữ liệu. Vui lòng thử lại.";
 
-        role5: "Dự bị"
-
-    };
-
-
-    try {
-
-        await fetch(
-            SCRIPT_URL,
-            {
-                method: "POST",
-
-                mode: "no-cors",
-
-                headers: {
-                    "Content-Type":
-                    "text/plain;charset=utf-8"
-                },
-
-                body:
-                JSON.stringify(data)
-            }
-        );
-
-
-        document
-            .getElementById("success")
-            .style.display = "block";
-
-
-        document
-            .getElementById("error")
-            .style.display = "none";
-
-
-        // XÓA FORM SAU KHI ĐĂNG KÝ
-
-        document
-            .getElementById("teamName")
-            .value = "";
-
-        document
-            .getElementById("captain")
-            .value = "";
-
-        document
-            .getElementById("contact")
-            .value = "";
-
-
-        for (
-            let i = 1;
-            i <= 5;
-            i++
-        ) {
-
-            document
-                .getElementById("player" + i)
-                .value = "";
-
-            document
-                .getElementById("uid" + i)
-                .value = "";
-        }
-
-
-        window.scrollTo({
-            top: document.body.scrollHeight,
-            behavior: "smooth"
-        });
-
-
-    } catch (error) {
-
-        showError(
-            "Không thể gửi dữ liệu. Hãy kiểm tra lại kết nối."
-        );
-
-    }
-
-
-    button.disabled = false;
-
-    button.innerText =
-        "🚀 ĐĂNG KÝ GIẢI ĐẤU";
 }
 
 
-// =====================================================
-// HIỆN LỖI
-// =====================================================
+button.disabled = false;
 
-function showError(message) {
+button.innerText =
+"🚀 ĐĂNG KÝ GIẢI ĐẤU";
 
-    const error =
-        document.getElementById("error");
+});
 
-    const errorText =
-        document.getElementById("errorText");
-
-    errorText.innerText =
-        message;
-
-    error.style.display =
-        "block";
-
-    document
-        .getElementById("success")
-        .style.display = "none";
-
-}
 
 </script>
 
 </body>
+
 </html>
